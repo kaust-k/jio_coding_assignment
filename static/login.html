@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Jio Assignment</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <a href="/secure">Click here to view secure page</a>
+  </br> </br>
+  <form id="loginForm" action="/login" method="post">
+    Username:<input id="username" type="text" name="username"> </br>
+    Password:<input id="password" type="password" name="password"> </br>
+    <input type="submit" value="Login">
+  </form>
+
+  <script type="application/javascript">
+    $(document).ready(function () {
+      $("#loginForm").submit(function (event) {
+        event.preventDefault();
+        var username = $("#username").val();
+        var password = $("#password").val();
+        console.log(username + " " + password);
+        $.ajax({
+          type: "POST",
+          url: '/login',
+          dataType: 'json',
+          async: false,
+          headers: {
+            "Authorization": "Basic " + btoa(username + ":" + password)
+          },
+          success: function (response) {
+            window.location.href = "secure";
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

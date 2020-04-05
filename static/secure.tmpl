@@ -1,0 +1,24 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Jio Assignment</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div>
+    {{if .LoggedIn}}
+    You are logged in.
+    </br> </br>
+    <a href="/logout">Click here to logout</a>
+    {{else}}
+    You are not logged in.
+    </br> </br>
+    <a href="/login">Click here to login</a>
+    {{end}}
+  </div>
+</body>
+
+</html>
